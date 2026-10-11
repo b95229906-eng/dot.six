@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dot.six — Clothing & Everyday Style</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        Free shipping across India on orders above ₹1,499 | Minimalist Everyday Wear
+    </div>
+
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="nav-left">
+                <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+                <nav class="nav-links" id="navLinks">
+                    <a href="#shop" class="active">Shop</a>
+                    <a href="#about">About</a>
+                    <a href="https://www.instagram.com/_dot.six" target="_blank">Instagram</a>
+                </nav>
+            </div>
+            
+            <div class="logo-brand">
+                <a href="index.html">
+                    <span class="logo-dot"></span>dot.six
+                </a>
+            </div>
+
+            <div class="nav-right">
+                <button class="icon-btn" id="cartBtn" title="Cart">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-badge" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-subtitle">CLOTHING · EVERYDAY STYLE</span>
+            <h1>REDEFINE YOUR BASICS</h1>
+            <p>Monochrome silhouettes crafted for modern daily movement.</p>
+            <a href="#shop" class="btn btn-primary">Explore Collection</a>
+        </div>
+    </section>
+
+    <!-- Shop / Product Catalog Section -->
+    <section class="shop-section" id="shop">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Collection</h2>
+                <div class="filter-buttons" id="filterContainer">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="Hoodies & Sweatshirts">Hoodies</button>
+                    <button class="filter-btn" data-filter="T-Shirts">T-Shirts</button>
+                    <button class="filter-btn" data-filter="Bottoms">Bottoms</button>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="product-grid" id="productGrid">
+                <!-- Dynamically populated from app.js / localStorage -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container about-container">
+            <div class="about-text">
+                <h2>About dot.six</h2>
+                <p>Born from a passion for minimalist design, <strong>dot.six</strong> focuses on premium fabrics, timeless black-and-white palettes, and effortless everyday silhouettes. Designed for those who value understated presence.</p>
+                <div class="about-contact">
+                    <p><i class="fa-solid fa-phone"></i> +91 99612 00849</p>
+                    <p><i class="fa-brands fa-whatsapp"></i> +91 99612 00849</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shopping Cart Sidebar Drawer -->
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3>Your Bag (<span id="drawerCartCount">0</span>)</h3>
+            <button class="close-cart" id="closeCart"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-body" id="cartItemsContainer">
+            <!-- Cart items populated here -->
+        </div>
+        <div class="cart-footer" id="cartFooter">
+            <div class="subtotal-row">
+                <span>Subtotal</span>
+                <span id="cartSubtotal">₹0</span>
+            </div>
+            <p class="shipping-note">Shipping calculated at checkout. No returns or exchanges applicable.</p>
+            <button class="btn btn-primary btn-full" id="checkoutBtn">Proceed to Checkout</button>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <!-- Checkout Modal -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal"><i class="fa-solid fa-xmark"></i></button>
+            <h2>Complete Your Order</h2>
+            <form id="checkoutForm">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="custName" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" id="custPhone" value="+91" required placeholder="Phone number">
+                </div>
+                <div class="form-group">
+                    <label>Shipping Address</label>
+                    <textarea id="custAddress" rows="3" required placeholder="House/Flat no., Street, City, Pincode"></textarea>
+                </div>
+                <div class="payment-method-box">
+                    <p><strong>Payment Method:</strong> Online UPI (Razorpay simulated)</p>
+                    <p class="cod-note">Note: Cash on Delivery (COD) is not available.</p>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Pay Securely & Place Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <span class="logo-brand"><span class="logo-dot"></span>dot.six</span>
+                <p>Monochrome daily wear for the modern minimalist.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <a href="#shop">Shop</a>
+                <a href="#about">About</a>
+                <a href="https://www.instagram.com/_dot.six" target="_blank">Instagram</a>
+            </div>
+            <div class="footer-col">
+                <h4>Admin Access</h4>
+                <p>Manage store inventory:</p>
+                <a href="admin.html" class="admin-link-btn"><i class="fa-solid fa-lock"></i> Secret Admin Panel</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 dot.six. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
