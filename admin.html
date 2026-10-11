@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard — dot.six</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-body">
+
+    <!-- Admin Header -->
+    <header class="admin-header">
+        <div class="container admin-nav">
+            <div class="logo-brand">
+                <a href="index.html"><span class="logo-dot"></span>dot.six <span>ADMIN</span></a>
+            </div>
+            <a href="index.html" class="btn btn-outline"><i class="fa-solid fa-arrow-left"></i> Back to Store</a>
+        </div>
+    </header>
+
+    <main class="container admin-main">
+        <div class="admin-flex-header">
+            <h1>Product Inventory Management</h1>
+            <button class="btn btn-primary" id="openAddModalBtn"><i class="fa-solid fa-plus"></i> Add New Product</button>
+        </div>
+
+        <!-- Product Table list -->
+        <div class="table-responsive">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Product Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Sizes</th>
+                        <th>Stock</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="adminProductTableBody">
+                    <!-- Populated via app.js -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Add/Edit Product Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeProductModal"><i class="fa-solid fa-xmark"></i></button>
+            <h2 id="modalTitle">Add New Product</h2>
+            <form id="productForm">
+                <input type="hidden" id="editProductId">
+                <div class="form-group">
+                    <label>Product Name</label>
+                    <input type="text" id="prodName" required placeholder="e.g. Oversized Heavyweight Tee">
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <select id="prodCategory" required>
+                        <option value="T-Shirts">T-Shirts</option>
+                        <option value="Hoodies & Sweatshirts">Hoodies & Sweatshirts</option>
+                        <option value="Bottoms">Bottoms</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Price (₹)</label>
+                    <input type="number" id="prodPrice" required placeholder="1499">
+                </div>
+                <div class="form-group">
+                    <label>Image URL (or Unsplash photo link)</label>
+                    <input type="url" id="prodImage" required placeholder="https://images.unsplash.com/...">
+                </div>
+                <div class="form-group">
+                    <label>Available Sizes (comma separated)</label>
+                    <input type="text" id="prodSizes" required value="S, M, L, XL">
+                </div>
+                <div class="form-group">
+                    <label>Stock Quantity</label>
+                    <input type="number" id="prodStock" required value="25">
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="prodDesc" rows="3" placeholder="Minimalist 240GSM cotton tee..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Save Product</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
